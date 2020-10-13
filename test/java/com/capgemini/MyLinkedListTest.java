@@ -48,4 +48,21 @@ public class MyLinkedListTest {
 				&& linkedlist.tail.equals(myThirdNode);
 		Assert.assertEquals(true, result);
 	}
+	
+	@Test
+	public void testforPop() {
+		Node<Integer> myFirstNode = new Node<>(70);
+		Node<Integer> mySecondNode = new Node<>(30);
+		Node<Integer> myThirdNode = new Node<>(56);
+		MyLinkedList linkedlist = new MyLinkedList();
+		linkedlist.add(myFirstNode);
+		linkedlist.add(mySecondNode);
+		linkedlist.add(myThirdNode);
+		linkedlist.printMyNodes();
+		linkedlist.pop();
+		System.out.println("after using the pop method");
+		linkedlist.printMyNodes();
+		Node<Integer> pop = (Node<Integer>) linkedlist.pop();
+		Assert.assertEquals(mySecondNode,pop);
+	}
 }
