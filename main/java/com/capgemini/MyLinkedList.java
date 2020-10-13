@@ -3,6 +3,7 @@ package com.capgemini;
 public class MyLinkedList<K> {
 	public INode head;
 	public INode tail;
+	public int size=0;
 	
 	public MyLinkedList() {
 		this.head = null;
@@ -89,6 +90,24 @@ public class MyLinkedList<K> {
 		Node.setNext(temp2);
 		return temp;
 	}
+	
+	public INode searchAndRemove(K key) {
+		INode temp = head;
+		while (temp != null && temp.getNext() != null) {
+			if (temp.getNext().getkey().equals(key)) {
+				break;
+			} else
+				temp = temp.getNext();
+		}
+		temp.setNext(temp.getNext().getNext());
+		size--;
+		return temp;
+	}
+
+	public int Resize() {
+		return size;
+	}
+
 	
 	public void printMyNodes() {
 		StringBuffer myNodes = new StringBuffer("My Nodes: ");
