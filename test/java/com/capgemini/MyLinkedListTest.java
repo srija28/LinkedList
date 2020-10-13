@@ -123,7 +123,27 @@ public class MyLinkedListTest {
 		Node<Integer> searchAndRemove = (Node<Integer>) linkedlist.searchAndRemove(80);
 		System.out.print("Search and Remove \nSize = " + linkedlist.Resize() + "\n");
 		linkedlist.printMyNodes();
-		Assert.assertEquals(mySecondNode, searchAndRemove);
+		Assert.assertEquals(mySecondNode, searchAndRemove);	
+	}
+	
+	@Test
+	public void testforAddandSort() {
+		Node<Integer> myFirstNode = new Node<>(70);
+		Node<Integer> mySecondNode = new Node<>(30);
+		Node<Integer> myThirdNode = new Node<>(56);
+		Node<Integer> myFourthNode = new Node<>(40);
 		
+		MyLinkedList<Integer> linkedList = new MyLinkedList<>();
+		linkedList.addAndSort(myFirstNode);
+		linkedList.addAndSort(mySecondNode);
+		linkedList.addAndSort(myThirdNode);
+		linkedList.addAndSort(myFourthNode);
+		
+		linkedList.printMyNodes();
+		boolean result = linkedList.head.equals(mySecondNode) 
+				&& linkedList.head.getNext().equals(myFourthNode) 
+				&& linkedList.head.getNext().getNext().equals(myThirdNode)
+				&& linkedList.tail.equals(myFirstNode);
+		Assert.assertTrue(result);
 	}
 }
