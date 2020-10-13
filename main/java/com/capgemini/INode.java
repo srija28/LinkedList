@@ -1,10 +1,13 @@
 package com.capgemini;
 
 public interface INode<K> {
-	K getkey();
-	void setKey(K key);
+	K getkey();	
 	
 	INode getNext();
 	void setNext(INode next);
+	void setKey(K key);
+
+
+
 
 }
