@@ -1,6 +1,6 @@
 package com.capgemini;
 
-public class MyLinkedList {
+public class MyLinkedList<K> {
 	public INode head;
 	public INode tail;
 	
@@ -56,6 +56,25 @@ public class MyLinkedList {
 		this.tail=tempNode;
 		tempNode = tempNode.getNext();
 		return tempNode;
+	}
+	
+	public <K> INode search(K key){
+		INode tempNode = head;
+		while(!tempNode.equals(tail)) {
+			if(tempNode.getkey()==key) {
+				System.out.println("Element is present");
+				return tempNode;
+			}
+			tempNode = tempNode.getNext();
+		}
+		if(tempNode.getkey()==key) {
+			System.out.println("Element is present ");
+			return tempNode;
+		}
+		else {
+			System.out.println("Element is not present");
+			return null;
+		}
 	}
 	
 	public void printMyNodes() {
