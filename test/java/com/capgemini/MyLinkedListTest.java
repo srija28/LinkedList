@@ -90,5 +90,22 @@ public class MyLinkedListTest {
 		Node<Integer> search = (Node<Integer>) linkedlist.search(30);
 		Assert.assertEquals(mySecondNode, search);
 		
+	} 
+
+	@Test
+	public void testforSearchandInsert() {
+		Node<Integer> myFirstNode = new Node<>(56);
+		Node<Integer> mySecondNode = new Node<>(30);
+		Node<Integer> myThirdNode = new Node<>(70);
+		MyLinkedList linkedlist = new MyLinkedList();
+		linkedlist.add(myFirstNode);
+		linkedlist.append(mySecondNode);
+		linkedlist.append(myThirdNode);
+		linkedlist.printMyNodes();
+		Node<Integer> myFourthNode = new Node<Integer>(80);
+		Node<Integer> searchAndInsert = (Node<Integer>) linkedlist.searchAndInsert(30, myFourthNode);
+		linkedlist.printMyNodes();
+		Assert.assertEquals(mySecondNode, searchAndInsert);
+		
 	}
 }
