@@ -34,4 +34,18 @@ public class MyLinkedListTest {
 				&& linkedlist.tail.equals(myThirdNode);
 		Assert.assertTrue(result);
 	}
+	@Test
+	public void testforAddInTheMiddleOfTheList() {
+		Node<Integer> myFirstNode = new Node<>(56);
+		Node<Integer> mySecondNode = new Node<>(30);
+		Node<Integer> myThirdNode = new Node<>(70);
+		MyLinkedList linkedlist = new MyLinkedList();
+		linkedlist.add(myFirstNode);
+		linkedlist.append(myThirdNode);
+		linkedlist.insert(myFirstNode, mySecondNode);
+		linkedlist.printMyNodes();
+		boolean result = linkedlist.head.equals(myFirstNode) && linkedlist.head.getNext().equals(mySecondNode)
+				&& linkedlist.tail.equals(myThirdNode);
+		Assert.assertEquals(true, result);
+	}
 }
